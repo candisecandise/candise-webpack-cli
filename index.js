@@ -47,7 +47,7 @@ inquirer.prompt([
         type: 'list',
         name: 'projectFrame',
         message: 'Project frame',
-        choices: ['babel', 'vue']
+        choices: ['babel', 'vue', 'vue3']
     },
     {
         type: 'input',
@@ -61,9 +61,9 @@ inquirer.prompt([
     },
   
 ]).then((answers) => { 
-    const { projectName = 'my-project' } = answers;
-    const templateDir = path.join(__dirname, `templates/${answers.projectFrame}`);
-    const outDir = path.join(process.cwd(), answers.projectName) ;    
+    const { projectName = 'my-project', projectFrame } = answers;
+    const templateDir = path.join(__dirname, `templates/${projectFrame}`);
+    const outDir = path.join(process.cwd(), projectName) ;    
     spinner.start();
     try{
         copyDirRecursive(templateDir, outDir, answers);

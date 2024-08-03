@@ -1,10 +1,13 @@
+const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     entry: './src/index.js',
     mode: 'development',
     output: {
+        path: path.resolve(__dirname, 'dist'),
         publicPath: "/",
     },
     module: {
@@ -55,7 +58,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: "body",
             template: './src/index.html'
-        })
+        }),
+        new CleanWebpackPlugin(),
     ],
     resolve: {
         extensions: [".jsx", ".js", ".ts", ".tsx"],

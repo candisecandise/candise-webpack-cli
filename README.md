@@ -1,4 +1,6 @@
-# 生成使用 webpack 打包的简单项目脚手架
+# candise-webpack-cli
+一个脚手架，可以生成一些简单的项目，生成的项目使用 webpack 打包
+
 目前已经三个模板
 - babel
 - vue
